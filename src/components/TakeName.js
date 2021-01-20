@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Buttons';
 import MyContext from './Context';
@@ -59,21 +59,35 @@ const FormStyle = styled.div`
   }
 `;
 
+function setLocal (data) {
+  const json = JSON.stringify(data);
+  localStorage.setItem('currentPlayer',json);
+}
+
 export default function TakeName({ setOverlay }){
   const [ name,  setName ] = useContext(MyContext);
+  const history = useHistory();
+  const submitHandler = (e) =>  {
+      e.preventDefault();
+      const data = {
+        name: e.target.name.value,
+        round: 5,
+        score: 0 
+      }
+      setLocal(data);
+      setName(e.target.name.value);
+      history.push('/board');
+      
+  }
   return(
     <FormStyle>
       <div className="wrapper">
-        <form onSubmit={(e)=> {
-          e.preventDefault();
-          console.log(name);
-
-        }}>  
+        <form onSubmit={submitHandler}>  
           <label htmlFor="name">
-            <input type="text" id="name" name="name" value={name} onChange={(e)=> setName(e.target.value)}/>
-            <Link to='/board'>
+            <input type="text" id="name" name="name" />
+            {/* <Link to='/board'> */}
               <Button fontSize="3" type="submit">Start</Button>
-            </Link>
+            {/* </Link> */}
           </label>
         </form>
         <div className="close" onClick={()=> setOverlay(false)}>

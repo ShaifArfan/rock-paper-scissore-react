@@ -35,6 +35,9 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: white;
   }
+  img{
+    width: 100%;
+  }
   button{
     outline: none
   }

@@ -8,6 +8,10 @@ const ExitPosition = styled.div`
   position: absolute;
   left:20px;
   top: 20px;
+   @media only screen and (max-width: 768px){
+    top: 5px;
+    left: 5px;
+  }
 `;
 
 const ExitStyle = styled.div`
@@ -17,6 +21,12 @@ const ExitStyle = styled.div`
     gap: 1rem;
  svg{
    max-width: 30px;
+ }
+ @media only screen and (max-width: 768px){
+   font-size: 1.5rem;
+   svg{
+     max-width: 20px;
+   }
  }
 `;
 

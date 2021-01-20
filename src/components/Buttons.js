@@ -10,7 +10,11 @@ const ButtonStyle = styled.button`
   border: 0px;
   border-radius: 8px;
   background-color: var(--gray);
-  width: ${props => props.width ? props.width+'%' : ''}
+  width: ${props => props.width ? props.width+'%' : ''};
+  
+  @media only screen and (max-width: 768px){
+    padding: .5em 1.4em;
+  }
 `;
 
 export default function Button ({ children, fontSize, width }){
