@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Button from './Buttons';
 import Selected from './Selected';
@@ -25,7 +25,7 @@ const RoundStyle = styled.ul`
 export default function RoundSetting({ setShowRound}){
   const rounds = [5, 10, 15];
   let selectedRoundNumber = getSelectedRound();
-  const [roundNumber, setRoundNumber] = useState(selectedRoundNumber);
+  let roundNumber = selectedRoundNumber;
   function handleClick(e, round){
     setSelectedRound(round);
     console.log(roundNumber, round)

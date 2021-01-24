@@ -12,6 +12,9 @@ const AllHandStyle = styled.div`
 `;
 
 
+
+
+
 export default function AllHands(){
   return(
     <AllHandStyle>

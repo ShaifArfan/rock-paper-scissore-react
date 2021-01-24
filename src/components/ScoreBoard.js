@@ -33,16 +33,18 @@ const ScoreBoardStyle = styled.div`
   }
 `;  
 
-export default function ScoreBoard({playerName}){
+export default function ScoreBoard({playerName, score}){
+  const playerScore = score[0];
+  const botScore = score[1];
   return(
     <ScoreBoardStyle>
       <div className="player">
-        <p>{playerName} <span className="score">00</span></p>
+        <p>{playerName} <span className="score">{playerScore}</span></p>
       </div>
       <div>
         <p>Round-1</p>
       </div>
-      <div className="bot"><p><span className="botScore score">00</span> Bot</p></div>
+      <div className="bot"><p><span className="botScore score">{botScore}</span> Bot</p></div>
     </ScoreBoardStyle>
   )
 }

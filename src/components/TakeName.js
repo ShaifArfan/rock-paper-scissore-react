@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Buttons';
 import MyContext from './Context';
@@ -65,7 +65,7 @@ function setLocal (data) {
 }
 
 export default function TakeName({ setOverlay }){
-  const [ name,  setName ] = useContext(MyContext);
+  const [name, setName ] = useContext(MyContext);
   const history = useHistory();
   const submitHandler = (e) =>  {
       e.preventDefault();

@@ -10,7 +10,6 @@ const MyContext = React.createContext();
 
 export function MyContextProvider({ children }){
   const [name, setName] = useState('');
-
   useEffect(()=>{
     if(localStorage.getItem('currentPlayer')){
       const data = JSON.parse(localStorage.getItem('currentPlayer'));
@@ -19,7 +18,7 @@ export function MyContextProvider({ children }){
       localStorage.setItem('currentPlayer', '');
     }
     }, [])
-  console.log(name);
+  // console.log(name);
   return(
     <MyContext.Provider value={[name, setName]}>
       {children}

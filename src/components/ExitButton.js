@@ -19,13 +19,14 @@ const ExitStyle = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    /* font-size: 1.3rem; */
  svg{
-   max-width: 30px;
+   max-width: 1.5em;
  }
  @media only screen and (max-width: 768px){
-   font-size: 1.5rem;
+   /* font-size: 1rem; */
    svg{
-     max-width: 20px;
+     max-width: 1.5em;
    }
  }
 `;
@@ -35,7 +36,7 @@ export default function ExitButton(){
   return(
     <ExitPosition>
       <Link to="/">
-        <Button>
+        <Button fontSize="1.4">
           <ExitStyle className="exit-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
