@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import BoardContext from './boardContext';
+import MyContext from './Context';
 
 const ScoreBoardStyle = styled.div`
   max-width: 500px;
@@ -33,16 +35,19 @@ const ScoreBoardStyle = styled.div`
   }
 `;  
 
-export default function ScoreBoard({playerName, score}){
-  const playerScore = score[0];
-  const botScore = score[1];
+export default function ScoreBoard(){
+  const {name} = useContext(MyContext);
+  const { gameRound, score } = useContext(BoardContext);
+
+  const playerScore = score.playerScore;
+  const botScore = score.botScore;
   return(
     <ScoreBoardStyle>
       <div className="player">
-        <p>{playerName} <span className="score">{playerScore}</span></p>
+        <p>{name} <span className="score">{playerScore}</span></p>
       </div>
       <div>
-        <p>Round-1</p>
+        <p>Round-{gameRound}</p>
       </div>
       <div className="bot"><p><span className="botScore score">{botScore}</span> Bot</p></div>
     </ScoreBoardStyle>

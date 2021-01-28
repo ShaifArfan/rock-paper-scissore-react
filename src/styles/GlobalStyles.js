@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --black: #0D1117;
     --black-2: #20252B;
     --light-gray: #404853;
+    --royalBlue: royalBlue;
   }
   @font-face {
     font-family: RobotoMono;

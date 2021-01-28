@@ -65,13 +65,12 @@ function setLocal (data) {
 }
 
 export default function TakeName({ setOverlay }){
-  const [name, setName ] = useContext(MyContext);
+  const { setName } = useContext(MyContext);
   const history = useHistory();
   const submitHandler = (e) =>  {
       e.preventDefault();
       const data = {
         name: e.target.name.value,
-        round: 5,
         score: 0 
       }
       setLocal(data);

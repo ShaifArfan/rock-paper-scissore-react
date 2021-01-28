@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import RockImg from '../assets/images/rock-hand.png';
 import PaperImg from '../assets/images/paper-hand.png';
 import ScissorsImg from '../assets/images/scissors-hand.png';
 import styled from 'styled-components';
-import BoardContext from './boardContext';
 import useBoard from '../utils/useBoard';
 
 const HandStyle = styled.div`
@@ -13,14 +12,15 @@ const HandStyle = styled.div`
   @media only screen and (max-width: 768px){
     max-width: 100px;
   }
+  img{
+    pointer-events: none;
+  }
 `;
 
 
 
 export default function HandImg ({ hand, direction}){
-  const { setMove, move} = useContext(BoardContext);
-  const { state, setState } = useBoard();
-
+  
   let img = null;
   if(hand === "paper"){
     img = PaperImg;
@@ -31,11 +31,8 @@ export default function HandImg ({ hand, direction}){
   }
   return(
     <HandStyle dir={direction}>
-      <img src={img} alt={hand} onClick={()=> {
-        setMove(hand);
-        setState(state+1);
-        console.log(state)
-      }} />
+      <img src={img} alt={hand}
+       />
     </HandStyle>
   )
 }

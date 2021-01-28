@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import AllHands from './AllHands';
+import BoardContext from './boardContext';
 import Button from './Buttons';
 import PreHand from './PreHand';
 
