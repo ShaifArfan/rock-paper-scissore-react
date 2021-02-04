@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const MyContext = React.createContext();
 
@@ -10,19 +10,7 @@ const MyContext = React.createContext();
 
 export function MyContextProvider({ children }){
   const [name, setName] = useState('');
-  const [playerRound, setPlayerRound] = useState(1);
-  const data = {
-    name: name,
-    playerRound,
-  }
-  useEffect(()=>{
-    if(localStorage.getItem('currentPlayer')){
-      const data = JSON.parse(localStorage.getItem('currentPlayer'));
-      setName(data.name);
-    }else{
-      localStorage.setItem('currentPlayer', JSON.stringify(data));
-    }
-    }, [])
+  const [playerRound, setPlayerRound] = useState(5);
   // console.log(name);
   return(
     <MyContext.Provider value={{name, setName, playerRound, setPlayerRound}}>

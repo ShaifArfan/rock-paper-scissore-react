@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import BoardContext from './boardContext';
 import MyContext from './Context';
@@ -17,8 +17,29 @@ const FinalStyled = styled.div`
 `;
 
 export default function FinalResult(){
+  const {name, playerRound } = useContext(MyContext);
   const { score } = useContext(BoardContext);
-  const { name } = useContext(MyContext);
+  const currentPlayer = {
+    name,
+    score,
+    round: playerRound
+  }
+  useEffect(() => {
+    localResults();
+  });
+
+  function localResults () {
+    const currentPlayerResult = currentPlayer;
+    let topResults = '';
+    if(localStorage.getItem('topResults')){
+      topResults = JSON.parse(localStorage.getItem('topResults')); 
+    }else{
+      localStorage.setItem('topResults', '');
+    }
+    const newTopResults = [...topResults, currentPlayerResult];
+    localStorage.setItem('topResults', JSON.stringify(newTopResults));
+  } 
+
   function getResult (){
     let result = '';
     if(score.playerScore > score.botScore){

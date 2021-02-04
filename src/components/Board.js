@@ -10,7 +10,7 @@ import ScoreBoard from './ScoreBoard';
 export default function Board(){
 
   // const {gameState, setGameState, score, setScore} = useBoard();
-  const { gameState, score, setScore } = useContext(BoardContext);
+  const { gameState } = useContext(BoardContext);
 
   console.log(gameState)
   return(

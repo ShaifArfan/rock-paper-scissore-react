@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import BoardContext from './boardContext';
-import MyContext from './Context';
 
 const ScoreBoardStyle = styled.div`
   max-width: 500px;
@@ -36,7 +35,7 @@ const ScoreBoardStyle = styled.div`
 `;  
 
 export default function ScoreBoard(){
-  const {name} = useContext(MyContext);
+  const name = JSON.parse(localStorage.getItem('currentPlayer')).name;
   const { gameRound, score } = useContext(BoardContext);
 
   const playerScore = score.playerScore;

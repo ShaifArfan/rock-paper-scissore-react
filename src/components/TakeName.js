@@ -59,19 +59,21 @@ const FormStyle = styled.div`
   }
 `;
 
-function setLocal (data) {
-  const json = JSON.stringify(data);
-  localStorage.setItem('currentPlayer',json);
-}
+
 
 export default function TakeName({ setOverlay }){
   const { setName } = useContext(MyContext);
   const history = useHistory();
+
+  function setLocal (data) {
+    const json = JSON.stringify(data);
+    localStorage.setItem('currentPlayer',json);
+    }
+
   const submitHandler = (e) =>  {
       e.preventDefault();
       const data = {
         name: e.target.name.value,
-        score: 0 
       }
       setLocal(data);
       setName(e.target.name.value);

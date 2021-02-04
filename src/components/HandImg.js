@@ -3,7 +3,6 @@ import RockImg from '../assets/images/rock-hand.png';
 import PaperImg from '../assets/images/paper-hand.png';
 import ScissorsImg from '../assets/images/scissors-hand.png';
 import styled from 'styled-components';
-import useBoard from '../utils/useBoard';
 
 const HandStyle = styled.div`
   max-width: 200px;

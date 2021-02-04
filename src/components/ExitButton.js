@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Buttons';
 
@@ -20,31 +20,24 @@ const ExitStyle = styled.div`
     justify-content: center;
     gap: 1rem;
     /* font-size: 1.3rem; */
- svg{
-   max-width: 1.5em;
- }
- @media only screen and (max-width: 768px){
-   /* font-size: 1rem; */
-   svg{
-     max-width: 1.5em;
-   }
- }
+
 `;
 
 
 export default function ExitButton(){
+  const history = useHistory();
+  function handleClick(){
+    console.log('test');
+    history.push('/')
+    localStorage.removeItem('currentPlayer');
+  }
   return(
-    <ExitPosition>
-      <Link to="/">
+    <ExitPosition onClick={handleClick}>
         <Button fontSize="1.4">
-          <ExitStyle className="exit-button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-          </svg>
+          <ExitStyle className="exit-button" >
         <span>Exit</span>
           </ExitStyle>
         </Button>
-      </Link>
     </ExitPosition>
   )
 }
