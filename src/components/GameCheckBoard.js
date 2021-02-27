@@ -53,7 +53,7 @@ const { playerRound } = useContext(MyContext);
     const result = checkMove(move, score, setScore);
     setScore(result);
     console.log('score updated')
-  })
+  }, [])
   
   return(
     <>

@@ -53,7 +53,7 @@ const FormStyle = styled.div`
       right: 10px;
       top: 10px;
       svg{
-        max-width: 25px;
+        width: 25px;
       }
     }
   }
